@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Mofluid_Mofluidapi2::menu">
+                    <resource id="Mofluid_Notifications::notification" title="Mofluid Simple News" translate="title" sortOrder="3">
+                        <resource id="Mofluid_Notifications::add_news" title="Add News" translate="title"  sortOrder="1" />
+                        <resource id="Mofluid_Notifications::manage_news" title="Manage News" translate="title" sortOrder="2" />
+                        <resource id="Mofluid_Notifications::configuration" title="Configurations" translate="title" sortOrder="3" />
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Mofluid_Notifications::system_config" title="Mofluid Simple News" translate="title">
+                                <resource id="Mofluid_Notifications::apple_configuration" title="Apple Configuration" translate="title" sortOrder="0"/>
+                                <resource id="Mofluid_Notifications::send_configuration" title="Send Configuration" translate="title" sortOrder="1"/>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

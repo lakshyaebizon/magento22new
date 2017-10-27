@@ -1,0 +1,105 @@
+<?php
+namespace Mofluid\Payment\Setup;
+
+use Magento\Framework\Setup\InstallDataInterface;
+use Magento\Framework\Setup\ModuleContextInterface;
+use Magento\Framework\Setup\ModuleDataSetupInterface;
+use Magento\Paypal\Model\Config as PaypalConfig;
+use Magedelight\Stripe\Model\Payment as Stripe;
+use Mofluid\Payment\Controller\Adminhtml\Payment;
+
+class InstallData implements InstallDataInterface
+{
+    /**
+     * {@inheritdoc}
+     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+     */
+    public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
+    {
+        $installer = $setup;
+
+        $installer->startSetup();
+
+        $connection = $installer->getConnection();
+
+        $connection->insertForce(
+            $installer->getTable('mofluid_payment_items'),
+            [
+                'id' => 1,
+                'payment_method_title' => 'Cash On Delivery',
+                'payment_method_code' => 'cod',
+                'payment_method_order_code' => 'cashondelivery',
+                'payment_method_status' => 0,
+                'payment_method_mode' => 0
+            ]
+        );
+        $connection->insertForce(
+            $installer->getTable('mofluid_payment_items'),
+            [
+                'id' => 2,
+                'payment_method_title' => 'Authorize.Net',
+                'payment_method_code' => 'authorize',
+                'payment_method_order_code' => 'authorizenet',
+                'payment_method_status' => 0,
+                'payment_method_mode' => 0
+            ]
+        );
+        $connection->insertForce(
+            $installer->getTable('mofluid_payment_items'),
+            [
+                'id' => 3,
+                'payment_method_title' => 'Paypal Standard',
+                'payment_method_code' => 'paypal',
+                'payment_method_order_code' => 'paypal_standard',
+                'payment_method_status' => 0,
+                'payment_method_mode' => 0
+            ]
+        );
+        $connection->insertForce(
+            $installer->getTable('mofluid_payment_items'),
+            [
+                'id' => 5,
+                'payment_method_title' => 'Bank Transfer',
+                'payment_method_code' => 'banktransfer',
+                'payment_method_order_code' => 'banktransfer',
+                'payment_method_status' => 0,
+                'payment_method_mode' => 0
+            ]
+        );
+        $connection->insertForce(
+            $installer->getTable('mofluid_payment_items'),
+            [
+                'id' => 9,
+                'payment_method_title' => 'Stripe',
+                'payment_method_code' => Stripe::CODE,
+                'payment_method_order_code' => Stripe::CODE,
+                'payment_method_status' => 1,
+                'payment_method_mode' => 0
+            ]
+        );
+        $connection->insertForce(
+            $installer->getTable('mofluid_payment_items'),
+            [
+                'id' => 10,
+                'payment_method_title' => 'Paypal Express Checkout',
+                'payment_method_code' => PaypalConfig::METHOD_EXPRESS,
+                'payment_method_order_code' => PaypalConfig::METHOD_EXPRESS,
+                'payment_method_status' => 1,
+                'payment_method_mode' => 0
+            ]
+        );
+        $connection->insertForce(
+            $setup->getTable('mofluid_payment_items'),
+            [
+                'id' => 11,
+                'payment_method_title' => 'Paypal Express Checkout REST API',
+                'payment_method_code' => 'paypal_rest_api',
+                'payment_method_order_code' => 'paypal_rest_api',
+                'payment_method_status' => 0,
+                'payment_method_mode' => 0
+            ]
+        );
+
+        $installer->endSetup();
+    }
+}

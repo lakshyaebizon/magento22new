@@ -1,0 +1,39 @@
+{
+  "name": "ebizon/smith-mofluid",
+  "description": "Custom SmithBuy Magento 2 Mofluid Module",
+  "type": "magento2-module",
+  "version": "1.1.4",
+  "license": [
+    "proprietary"
+  ],
+  "authors": [
+    {
+      "name": "Ebizontek",
+      "email": "info@ebizontek.com",
+      "role": "Primary Developer"
+    },
+    {
+      "name": "Jeremy Rimpo",
+      "email": "jeremy.rimpo@servermonkey.com",
+      "role": "SmithBuy Development"
+    }
+  ],
+  "require": {
+    "php": "7.0.2|7.0.4|~7.0.6|~7.1.0",
+    "magento/framework": "~100.1|~100.2|~101.0",
+    "stripe/stripe-php": "~4.0",
+    "paypal/rest-api-sdk-php": "~1.0"
+  },
+  "autoload": {
+    "files": [
+      "Mofluidapi2/registration.php",
+      "Notifications/registration.php",
+      "Payment/registration.php"
+    ],
+    "psr-4": {
+      "Mofluid\\Mofluidapi2\\": "Mofluidapi2",
+      "Mofluid\\Notifications\\": "Notifications",
+      "Mofluid\\Payment\\": "Payment"
+    }
+  }
+}

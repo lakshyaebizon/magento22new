@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Mofluid. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mofluid_Payment::mofluid_payment"
+             title="Payment Configuration"
+             module="Mofluid_Payment"
+             parent="Mofluid_Mofluidapi2::base"
+             sortOrder="5"
+             resource="Mofluid_Payment::index"
+             dependsOnModule="Mofluid_Payment"
+        />
+        <add id="Mofluid_Payment::mofluid_cashondelivery"
+             title="Cash On Delivery"
+             module="Mofluid_Payment"
+             parent="Mofluid_Payment::mofluid_payment"
+             sortOrder="10"
+             dependsOnModule="Mofluid_Payment"
+             action="payment/payment/edit/id/1"
+             resource="Mofluid_Payment::index"
+        />
+        <add id="Mofluid_Payment::mofluid_authorizenet"
+             title="Authorize.Net"
+             module="Mofluid_Payment"
+             parent="Mofluid_Payment::mofluid_payment"
+             sortOrder="15"
+             dependsOnModule="Mofluid_Payment"
+             action="payment/payment/edit/id/2"
+             resource="Mofluid_Payment::index"
+        />
+        <add id="Mofluid_Payment::mofluid_paypal_standard"
+             title="Paypal Standard"
+             module="Mofluid_Payment"
+             parent="Mofluid_Payment::mofluid_payment"
+             sortOrder="25"
+             dependsOnModule="Mofluid_Payment"
+             action="payment/payment/edit/id/3"
+             resource="Mofluid_Payment::index"
+        />
+        <add id="Mofluid_Payment::mofluid_banktransfer"
+             title="Bank Transfer"
+             module="Mofluid_Payment"
+             parent="Mofluid_Payment::mofluid_payment"
+             sortOrder="30"
+             dependsOnModule="Mofluid_Payment"
+             action="payment/payment/edit/id/4"
+             resource="Mofluid_Payment::index"
+        />
+        <add id="Mofluid_Payment::mofluid_braintree"
+             title="BrainTree"
+             module="Mofluid_Payment"
+             parent="Mofluid_Payment::mofluid_payment"
+             sortOrder="35"
+             dependsOnModule="Mofluid_Payment"
+             action="payment/payment/edit/id/6"
+             resource="Mofluid_Payment::index"
+        />
+        <add id="Mofluid_Payment::mofluid_stripe"
+             title="Stripe"
+             module="Mofluid_Payment"
+             parent="Mofluid_Payment::mofluid_payment"
+             sortOrder="40"
+             dependsOnModule="Mofluid_Payment"
+             action="payment/payment/edit/id/9"
+             resource="Mofluid_Payment::index"
+        />
+        <add id="Mofluid_Payment::mofluid_paypal_express"
+             title="Paypal Express"
+             module="Mofluid_Payment"
+             parent="Mofluid_Payment::mofluid_payment"
+             sortOrder="45"
+             dependsOnModule="Mofluid_Payment"
+             action="payment/payment/edit/id/10"
+             resource="Mofluid_Payment::index"
+        />
+        <add id="Mofluid_Payment::paypal_rest_api"
+             title="Paypal REST API"
+             module="Mofluid_Payment"
+             parent="Mofluid_Payment::mofluid_payment"
+             sortOrder="50"
+             dependsOnModule="Mofluid_Payment"
+             action="payment/payment/edit/id/11"
+             resource="Mofluid_Payment::index"
+        />
+    </menu>
+</config>
